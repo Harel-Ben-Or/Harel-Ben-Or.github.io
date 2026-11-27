@@ -99,6 +99,16 @@ details .in{padding:0 12px 12px;display:flex;flex-direction:column;gap:8px}
 #px{position:sticky;top:10px;float:right;margin:10px 10px -50px 0;z-index:2;background:rgba(14,18,22,.9)}
 @media (max-width:760px){#px{display:none}}
 .leaf{opacity:.92;transition:opacity .25s}.leaf.back{opacity:.16}.leaf u{text-decoration:none;color:var(--acc);margin-left:5px}
+.wf{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:w}
+.wf li{position:relative;padding:0 0 14px 34px;display:flex;flex-direction:column;gap:3px}
+.wf li::before{content:attr(data-n);position:absolute;left:0;top:0;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:600 11px 'JetBrains Mono',monospace;color:var(--ink);background:var(--c,var(--acc))}
+.wf li::after{content:"";position:absolute;left:10.5px;top:24px;bottom:2px;width:1px;background:var(--line2)}
+.wf li:last-child::after{display:none}
+.wf b{font:600 13px 'Space Grotesk',sans-serif;color:var(--fg)}.wf b small{font:10px 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-left:8px}
+.wf p{font-size:13px!important;line-height:1.55!important}
+.stg{border:1px solid var(--line);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.stg h3{display:flex;align-items:center;gap:9px}.stg h3 i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font:600 11px 'JetBrains Mono',monospace;font-style:normal;color:var(--ink);flex:none}
+.stg .row .btn{font-size:10px;padding:7px 9px;min-height:32px;text-transform:none;letter-spacing:0}
 .live{align-self:flex-start;text-transform:none!important;font-size:13px!important;letter-spacing:0!important}
 .shot{padding:0;border:1px solid var(--line);border-radius:4px;background:none;overflow:hidden;display:block;width:100%}
 .shot img{display:block;width:100%;max-height:230px;object-fit:contain;background:#05070A}
@@ -160,7 +170,7 @@ form button{font:600 13px Inter,sans-serif;color:var(--ink);background:var(--fg)
 <div class="top">
 <div class="brand"><b>Harel Ben Or</b><div class="lab">Product Manager · Data &amp; AI-Driven Platforms</div></div>
 <div class="status lab"><span><u>●</u> core · online</span><span id="st-n"></span><span>answers · ready</span></div>
-<nav class="acts"><button class="btn pri" id="b-min" type="button">Me in one minute</button><button class="btn" id="b-cv" type="button">CV version</button><button class="btn" id="b-ask" type="button">Ask me</button></nav>
+<nav class="acts"><button class="btn pri" id="b-min" type="button">Me in one minute</button><button class="btn" id="b-cv" type="button">CV version</button><button class="btn" id="b-wf" type="button">How I work</button><button class="btn" id="b-ask" type="button">Ask me</button></nav>
 </div>
 <div id="mid">
 <div class="chips" id="chips"></div>
@@ -175,6 +185,7 @@ form button{font:600 13px Inter,sans-serif;color:var(--ink);background:var(--fg)
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="neural-data.js"></script>
 <script src="me-voice.js"></script>
+<script src="wf-data.js"></script>
 <script>
 const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
 function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
@@ -245,6 +256,7 @@ function openProj(id){const a=A.find(x=>x.cat&&x.cat.includes(id)),p=byId[id];hi
 head(a.n+' · project',a.c,p.title);pb.insertBefore(btn('bk','‹ back to '+a.n,()=>openArea(a.i)),pb.firstChild);
 pb.append(el('p',null,p.line));
 if(LIVE[id]){const l=el('a','btn pri live',LIVE[id][1]+' ↗');l.href=LIVE[id][0];l.target='_blank';l.rel='noopener';pb.append(l)}
+if(WF[id]){pb.append(el('div','lab','How it was built'),wfList(id))}
 if(p.shot){const im=el('img');im.src=p.shot;im.alt='Screenshot of '+p.title+'. '+p.cap;const b=btn('shot',null,()=>{const big=el('img');big.src=p.shot;big.alt=im.alt;const o=over(big);big.onclick=o._close});b.setAttribute('aria-label','Enlarge screenshot of '+p.title);b.append(im);pb.append(b,el('p','lab',p.cap))}
 [["What it is",p.what],["My part",p.part],["What it shows",p.shows]].forEach(r=>{const k=el('div','kv');k.append(el('span','lab',r[0]),el('p',null,r[1]));pb.append(k)});
 const k=el('div','kv'),t=el('div','tags');p.stack.forEach(x=>t.append(el('span',null,x)));k.append(el('span','lab','Built with'),t);pb.append(k);
@@ -259,6 +271,12 @@ say('The CV on one page: roles, numbers, education. For the person behind it, op
 pb.append(el('p',null,'Platform and data leader with 17 years in the IDF intelligence community. I turn user needs into requirements, KPIs and priorities with engineering teams, and turn large, complex, multi-source data into clear, actionable insights. I am looking for product roles in data and AI platforms.'),
 spots(),el('div','lab','Experience'),roles(false),el('div','lab','Education'),block("Master's in Information Science, GPA 93.6","Bar-Ilan University, 2024 to 2026."),block("B.A. Geography","Ben-Gurion University of the Negev, 2017 to 2019."),el('div','lab','Strongest skills'));
 const tg=el('div','tags');LEVELS[0].skills.forEach(s=>tg.append(el('span',null,s.n)));pb.append(tg,el('div','lab','Contact'),contact(),el('p','lab',AVAIL))}
+function wfList(id){const o=el('ol','wf');WF[id].forEach(r=>{const g=STG[r[0]],li=el('li');li.dataset.n=r[0]+1;li.dataset.s=r[0];li.style.setProperty('--c',g[2]);const h=el('b',null,g[0]);h.append(el('small',null,g[1]));li.append(h,el('p',null,r[1]));o.append(li)});return o}
+function openWorkflow(){hideHello();head('How I work','#7FD1AE','The same six steps, in everything I build');
+pb.append(el('p',null,WFINTRO));
+STG.forEach((g,k)=>{const b=el('div','stg'),h=el('h3'),n=el('i',null,String(k+1));n.style.background=g[2];h.append(n,document.createTextNode(g[0]));b.append(h,el('p',null,g[3]));
+const r=el('div','row');Object.keys(WF).forEach(id=>{if(WF[id].some(x=>x[0]===k))r.append(btn('btn',byId[id].title,()=>{openProj(id);const t=pb.querySelector('.wf li[data-s="'+k+'"]');if(t){t.classList.add('flash');t.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'})}}))});b.append(r);pb.append(b)});
+pb.append(el('p','lab','Every step listed under a project happened, and comes from that project’s own files. Steps that did not happen are left out.'))}
 function openAsk(){hideHello();head('Ask me','#7FD1AE','Questions hiring managers ask');
 say('These are the questions I get most. Here are my answers, plainly.');pb.append(faqList(),btn('btn','Read how I work',()=>openArea(2)))}
 const KW=[[/\b(code|coding|program|engineer|developer|python|technical)/i,1],[/\b(title|been a pm|product manager before|experience as)/i,0],[/\b(military|army|idf|officer|uniform|tech company|civilian)/i,2],
@@ -311,7 +329,7 @@ const c=btn('chip',null,()=>openArea(i));c.style.color=a.c;c.innerHTML='<i style
 const leaves=[];A.forEach(a=>{if(a.cat)a.cat.forEach((id,j)=>{const b=btn('it leaf',null,()=>openProj(id));b.textContent=byId[id].title;if(LIVE[id]){const u=el('u',null,'↗');b.append(u)}b.style.borderColor=a.c+'66';labels.append(b);leaves.push({b,a,j})})});
 const itL=[...Array(7)].map((_,j)=>{const b=btn('it','',()=>openItem(j));b.hidden=true;labels.append(b);return b});
 function closePanel(){document.body.classList.remove('open');sel=0;pb.textContent='';sync();try{history.replaceState(null,'',location.pathname)}catch(e){}}
-$('#px').onclick=closePanel;$('#b-ask').onclick=openAsk;
+$('#px').onclick=closePanel;$('#b-ask').onclick=openAsk;$('#b-wf').onclick=openWorkflow;
 $('#b-min').onclick=openMinute;$('#b-cv').onclick=openFacts;$('#t-prev').onclick=()=>openArea(sel-1);$('#t-next').onclick=()=>openArea(sel+1);
 document.addEventListener('keydown',e=>{const o=document.querySelector('.over');if(e.key==='Escape'){if(o)o._close();else if(document.body.classList.contains('open'))closePanel()}
 if(o||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(e.key==='ArrowRight')openArea(sel+1);if(e.key==='ArrowLeft')openArea(sel-1)});
