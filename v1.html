@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Harel Ben Or: Product Manager, Data and AI. An interactive portfolio.">
+<style>body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Harel Ben Or Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap">
+<style>
+:root{--bg:#07090C;--card:#0E1216;--card2:#141A20;--line:#1E252D;--line2:#3A444F;--fg:#E6E8EB;--soft:#B4BCC8;--mut:#8E98A6;--acc:#7FD1AE;--accent:#F2A33A;--ink:#07090C;color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:radial-gradient(ellipse at 50% 45%,#11202A 0%,var(--bg) 62%);background-color:var(--bg);color:var(--fg);font-family:Inter,system-ui,sans-serif;overflow:hidden;position:relative;min-height:100dvh}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--acc)}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.lab{font:500 10px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.16em;color:var(--mut);text-transform:uppercase}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+#c{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.floor{position:absolute;left:0;right:0;bottom:0;height:34%;pointer-events:none;background:linear-gradient(rgba(127,209,174,.16) 1px,transparent 1px) 0 0/100% 34px,linear-gradient(90deg,rgba(127,209,174,.16) 1px,transparent 1px) 50% 0/64px 100%;transform:perspective(420px) rotateX(62deg);transform-origin:50% 100%;-webkit-mask-image:linear-gradient(transparent,#000 85%);mask-image:linear-gradient(transparent,#000 85%);opacity:.45}
+#labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#labels>*{position:absolute;left:0;top:0;will-change:transform;white-space:nowrap}
+.hub{pointer-events:auto;display:flex;align-items:center;gap:7px;font:500 11px 'JetBrains Mono',ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;background:rgba(7,9,12,.72);border:1px solid transparent;border-radius:6px;padding:8px 9px;min-height:34px;transition:opacity .25s,border-color .2s}
+.hub i{width:9px;height:9px;border-radius:50%;flex:none}
+.hub span{color:var(--fg)}.hub small{font-size:10px;color:var(--mut)}
+.hub:hover,.hub[aria-pressed=true]{border-color:currentColor}
+.hub.back{opacity:.22}
+.core{pointer-events:auto;display:flex;flex-direction:column;align-items:center;gap:4px;background:none;border:0;font:600 11px 'JetBrains Mono',monospace;letter-spacing:.18em;padding:6px}
+.core span{background:rgba(7,9,12,.8);padding:3px 6px;border-radius:3px}
+.it{pointer-events:auto;font:10px 'JetBrains Mono',monospace;background:rgba(7,9,12,.82);border:1px solid var(--line2);padding:4px 7px;border-radius:3px}
+.it:hover,.it.on{border-color:var(--fg);background:#1A2129}
+.ui{position:absolute;inset:0;display:grid;grid-template-columns:236px minmax(0,1fr) 392px;grid-template-rows:auto minmax(0,1fr) auto;grid-template-areas:"top top top" "vit mid pan" "vit mid ask";gap:14px 22px;padding-block:16px;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));pointer-events:none}
+.ui>*{min-width:0}
+.top{grid-area:top;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 20px}
+.brand b{display:block;font:600 21px 'Space Grotesk',sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.status{display:flex;flex-wrap:wrap;gap:6px 18px}.status u{text-decoration:none;color:var(--acc)}
+.acts{display:flex;gap:8px;pointer-events:auto}
+.btn{font:500 11px 'JetBrains Mono',monospace;letter-spacing:.08em;text-transform:uppercase;background:rgba(14,18,22,.85);border:1px solid var(--line2);border-radius:4px;padding:11px 13px;min-height:40px;text-decoration:none;color:var(--fg);display:inline-flex;align-items:center;justify-content:center;text-align:center}
+.btn:hover{border-color:var(--fg)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--ink);font-weight:600}
+.btn.pri:hover{background:#9BE0C2}
+#vit{grid-area:vit;display:flex;flex-direction:column;gap:13px;overflow:auto;pointer-events:auto;scrollbar-width:none}
+.stat{border-bottom:1px solid var(--line);padding-bottom:11px;display:flex;flex-direction:column;gap:4px}
+.stat b{font:600 28px/1 'Space Grotesk',sans-serif}
+.stat span{font-size:12px;line-height:1.4;color:var(--mut)}
+.sys{display:flex;flex-direction:column;gap:6px}
+.sys button{display:flex;gap:10px;align-items:baseline;text-align:left;background:rgba(14,18,22,.7);border:1px solid var(--line);border-radius:4px;padding:9px 10px;font-size:12px;line-height:1.35;color:var(--soft)}
+.sys button:hover{border-color:var(--accent)}
+.sys b{font:600 15px 'Space Grotesk',sans-serif;color:var(--accent);min-width:26px}
+#mid{grid-area:mid;display:flex;flex-direction:column;gap:10px;align-items:center;position:relative}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;pointer-events:auto}
+.chip{display:flex;align-items:center;gap:6px;font:11px 'JetBrains Mono',monospace;background:rgba(14,18,22,.8);border:1px solid var(--line2);border-radius:4px;padding:8px 9px;min-height:32px}
+.chip i{width:7px;height:7px;border-radius:50%}.chip span{color:var(--fg)}
+.chip[aria-pressed=true]{border-color:currentColor;background:#151B21}
+#stage{flex:1;min-height:90px;align-self:stretch}
+.title{text-align:center;display:flex;flex-direction:column;gap:6px;align-items:center}
+.title h2{margin:0;font:500 clamp(20px,3vw,40px)/1 'Space Grotesk',sans-serif;letter-spacing:.28em;text-indent:.28em;text-transform:uppercase}
+.tour{display:flex;align-items:center;gap:6px;pointer-events:auto}
+.tour button{background:none;border:0;border-bottom:1px solid var(--line2);padding:9px 6px;font:11px 'JetBrains Mono',monospace;color:var(--soft)}
+.tour button:hover{color:var(--fg);border-color:var(--fg)}
+.tour span{font:11px 'JetBrains Mono',monospace;color:var(--mut);padding:0 8px}
+#panel{grid-area:pan;background:rgba(14,18,22,.88);border:1px solid var(--line);border-radius:6px;overflow:auto;pointer-events:auto;scrollbar-width:thin;scrollbar-color:var(--line2) transparent}
+#pb{padding:18px;display:flex;flex-direction:column;gap:13px}
+#pb h1{margin:0;font:600 22px/1.2 'Space Grotesk',sans-serif;text-wrap:balance}
+#pb h3{margin:0;font:600 15px/1.3 'Space Grotesk',sans-serif}
+#pb p{margin:0;font-size:14px;line-height:1.6;color:var(--soft)}
+#pb p.lab{font-size:10px;line-height:1.7;color:var(--mut)}
+.say{display:flex;gap:11px;border:1px solid #23463A;background:rgba(127,209,174,.06);border-radius:6px;padding:12px}
+.say svg{flex:none;width:26px;height:26px;margin-top:2px}
+.say .lab{display:block;color:var(--acc);margin-bottom:5px}
+.say p{color:var(--fg)!important}
+.rest{visibility:hidden}
+.typing .typed::after{content:"▍";color:var(--acc)}
+.spots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.spot{border:1px solid var(--line);border-radius:4px;padding:10px;display:flex;flex-direction:column;gap:3px}
+.spot b{font:600 21px 'Space Grotesk',sans-serif}.spot span{font-size:12px;line-height:1.35;color:var(--mut)}
+.block{border-left:2px solid var(--line2);padding-left:12px;display:flex;flex-direction:column;gap:4px}
+.flash{animation:fl 1.4s}@keyframes fl{0%,60%{border-color:var(--acc);background:rgba(127,209,174,.08)}}
+.list{display:flex;flex-direction:column;gap:6px}
+details{border:1px solid var(--line);border-radius:4px;background:rgba(7,9,12,.4)}
+details[open]{border-color:var(--line2)}
+summary{list-style:none;cursor:pointer;padding:11px 12px;display:flex;flex-direction:column;gap:3px;position:relative;padding-right:34px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:12px;top:10px;font:16px 'JetBrains Mono',monospace;color:var(--mut)}
+details[open] summary::after{content:"–"}
+summary span{font-size:12px;color:var(--mut);line-height:1.4}
+details ul{margin:0;padding:0 14px 12px 28px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.5;color:var(--soft)}
+details .in{padding:0 12px 12px;display:flex;flex-direction:column;gap:8px}
+.card{display:flex;gap:12px;align-items:center;text-align:left;background:rgba(7,9,12,.4);border:1px solid var(--line);border-radius:4px;padding:9px;width:100%}
+.card:hover{border-color:currentColor;background:var(--card2)}
+.card img,.card .ph{width:74px;height:54px;object-fit:cover;border-radius:3px;flex:none;background:var(--card2);display:grid;place-items:center;font:600 16px 'Space Grotesk',sans-serif}
+.card div{min-width:0;display:flex;flex-direction:column;gap:3px}
+.card b{font:600 14px 'Space Grotesk',sans-serif;color:var(--fg)}
+.card span{font-size:12px;line-height:1.4;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.bk{align-self:flex-start;background:none;border:0;padding:6px 0;font:11px 'JetBrains Mono',monospace;color:var(--mut)}
+.bk:hover{color:var(--fg)}
+.shot{padding:0;border:1px solid var(--line);border-radius:4px;background:none;overflow:hidden;display:block;width:100%}
+.shot img{display:block;width:100%;max-height:230px;object-fit:contain;background:#05070A}
+.kv{display:flex;flex-direction:column;gap:4px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tags span{font:11px 'JetBrains Mono',monospace;border:1px solid var(--line2);border-radius:3px;padding:4px 7px;color:var(--soft)}
+.row{display:flex;flex-wrap:wrap;gap:8px}
+.addr{font:14px 'JetBrains Mono',monospace;user-select:all;word-break:break-all}
+.you{align-self:flex-end;max-width:85%;background:var(--card2);border:1px solid var(--line2);border-radius:6px;padding:9px 12px;font-size:14px}
+form{grid-area:ask;display:flex;gap:8px;align-items:flex-end;background:rgba(14,18,22,.92);border:1px solid var(--line2);border-radius:6px;padding:8px 8px 8px 14px;pointer-events:auto}
+form:focus-within{border-color:var(--acc)}
+form label{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+form input{font:14px Inter,sans-serif;color:var(--fg);background:transparent;border:0;padding:7px 0;min-width:0;outline:0}
+form button{font:600 13px Inter,sans-serif;color:var(--ink);background:var(--fg);border:0;border-radius:4px;padding:12px 16px;min-height:44px}
+#hello{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:min(440px,100%);background:rgba(10,14,18,.94);border:1px solid #2E5A49;border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:12px;pointer-events:auto;box-shadow:0 20px 70px rgba(0,0,0,.6);z-index:3}
+#hello h2{margin:0;font:600 22px/1.2 'Space Grotesk',sans-serif}
+#hello p{margin:0;font-size:14px;line-height:1.6;color:var(--soft)}
+#boot{position:absolute;inset:0;z-index:20;background:var(--bg);display:grid;place-items:center;transition:opacity .5s}
+#boot div{font:12px/2 'JetBrains Mono',monospace;color:var(--mut);min-width:min(340px,80vw)}
+#boot b{color:var(--acc);font-weight:500}
+.over{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:16px;background:rgba(3,5,7,.82)}
+.over>img{max-width:100%;max-height:100%;border:1px solid var(--line2);border-radius:4px}
+.win{width:min(620px,100%);max-height:100%;overflow:auto;background:var(--card);border:1px solid var(--line2);border-radius:8px;padding:20px;display:flex;flex-direction:column;gap:14px;box-shadow:0 20px 70px rgba(0,0,0,.6)}
+.win .bar{display:flex;gap:4px}.win .bar i{flex:1;height:2px;background:var(--line2)}.win .bar i.on{background:var(--acc)}
+.win .wtop{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.win .wtop h3{margin:0;font:600 16px 'Space Grotesk',sans-serif}
+.x{background:none;border:1px solid var(--line2);border-radius:4px;min-width:40px;min-height:40px;font-size:18px}
+.s-head{display:flex;justify-content:space-between;gap:16px;align-items:center}
+.s-head h2{margin:4px 0 0;font:600 clamp(24px,5vw,32px)/1.1 'Space Grotesk',sans-serif;text-wrap:balance}
+.s-glyph{width:84px;height:84px;flex:none;color:var(--acc)}
+.s-lead{margin:0;font-size:17px;line-height:1.55}
+.s-proof{border-left:2px solid var(--acc);padding-left:12px;display:flex;flex-direction:column;gap:4px}
+.s-proof p,.win p{margin:0;font-size:14px;line-height:1.6;color:var(--soft)}
+.s-quote{margin:0;font:500 19px/1.4 'Space Grotesk',sans-serif;color:var(--fg)!important}
+.s-quote small{display:block;font:10px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-top:6px}
+.s-foot{display:flex;justify-content:space-between;gap:8px}
+.game nav{display:flex;flex-wrap:wrap;gap:6px}
+.game nav button[aria-pressed=true]{border-color:var(--acc);color:var(--acc)}
+.game canvas{display:block;width:100%;height:auto;border:1px solid var(--line2);border-radius:4px;touch-action:none;margin-top:10px}
+.game .hud{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font:12px 'JetBrains Mono',monospace;color:var(--soft)}
+.game .about{margin:10px 0!important}
+@media (max-width:1120px){.ui{grid-template-columns:minmax(0,1fr) 340px;grid-template-areas:"top top" "mid pan" "mid ask"}#vit,.status{display:none}}
+@media (max-width:760px){
+.ui{grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,36dvh) minmax(0,1fr) auto;grid-template-areas:"top" "mid" "pan" "ask";gap:8px;padding-block:10px}
+.floor,.hub small,.it,.brand .lab{display:none}.brand b{font-size:15px;letter-spacing:.1em}
+.btn{padding:8px 9px;min-height:36px;font-size:10px}
+.chips{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;align-self:stretch;scrollbar-width:none}.chip{flex:none}
+#mid{gap:6px}.title{gap:2px}.title h2{font-size:15px;letter-spacing:.2em}.tour button{padding:5px 6px}
+#pb{padding:14px;gap:11px}#pb h1{font-size:19px}
+.hub{padding:4px 6px;min-height:0;font-size:9px}.hub:not([aria-pressed=true]){display:none}
+#hello{position:fixed;top:50%;width:calc(100% - 32px);z-index:25}
+}
+</style>
+<canvas id="c" aria-label="A rotating 3D graph of Harel's work. A core in the middle links to nine areas, each with its own cluster of items."></canvas>
+<div class="floor"></div>
+<div id="labels"></div>
+<div class="ui">
+<div class="top">
+<div class="brand"><b>Harel Ben Or</b><div class="lab">Product Manager · Data &amp; AI-Driven Platforms</div></div>
+<div class="status lab"><span><u>●</u> core · online</span><span id="st-n"></span><span>assistant · ready</span></div>
+<nav class="acts"><button class="btn pri" id="b-min" type="button">Harel in one minute</button><button class="btn" id="b-cv" type="button">CV version</button></nav>
+</div>
+<aside id="vit"></aside>
+<div id="mid">
+<div class="chips" id="chips"></div>
+<div id="stage"></div>
+<div class="title"><h2 id="tname"></h2><div class="lab" id="tsub"></div>
+<div class="tour"><button id="t-prev" type="button" aria-label="Previous area">‹ prev</button><span id="t-n"></span><button id="t-next" type="button" aria-label="Next area">next ›</button><button id="t-mo" type="button">pause motion</button></div></div>
+</div>
+<section id="panel" aria-live="polite"><div id="pb"></div></section>
+<form id="ask"><label class="lab">Ask the assistant about Harel<input id="q" type="text" autocomplete="off" placeholder="Does he write code himself?"></label><button type="submit">Ask</button></form>
+</div>
+<div id="boot"><div id="boot-t"></div></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="neural-data.js"></script>
+<script>
+const $=s=>document.querySelector(s),RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function el(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function btn(c,x,fn){const b=el('button',c,x);b.type='button';b.onclick=fn;return b}
+const HEX='<svg viewBox="0 0 34 34" fill="rgba(7,9,12,.8)" stroke="#7FD1AE" stroke-width="2.5" aria-hidden="true"><path d="M17 3l12 7v14l-12 7-12-7V10z"/><circle cx="17" cy="17" r="3" fill="#7FD1AE" stroke="none"/></svg>';
+const META=[['Harel','#7FD1AE','core · who he is',[]],
+['Career','#6C8CFF','four roles in seven years',['Data product','Analysis ops','Partnerships','Research team']],
+['Field notes','#38BDF8','what he is like to work with',['Asks','Plans first','Samples','Corrects','Truth','User first','Delegates']],
+['Geospatial','#2DD4BF','his home ground'],['Products & agents','#F2A33A','products and teams of AI agents'],
+['Computer vision','#A78BFA','teaching machines to see'],['Games & film','#F472B6','games, a film and a tunnel'],
+['Skills','#A3E635','education and skills',['Strong','Working','Learning now']],
+['Off the clock','#F87171','when he is not building',['Cooking','Games','Science','Maps','Parables','Ideas']],
+['Contact','#E6E8EB','get in touch',['Email','LinkedIn']]];
+const A=SITES.map((s,i)=>({s,i,n:META[i][0],c:META[i][1],sub:META[i][2],cat:s.cat,items:META[i][3]||s.cat.map(id=>byId[id].title)}));
+const SPOTS=[["17","years in geospatial intelligence"],["~500","analysts adopted the standards he wrote"],["~10x","area coverage after he brought AI into the workflow"],["93.6","master's GPA, Information Science"]];
+const AVAIL="Israel · Hebrew (native) · English (fluent) · available from January 2027";
+const pb=$('#pb'),panel=$('#panel');
+let sel=0,G=null,tk=0;
+$('#st-n').textContent=(A.length-1)+' areas · '+PROJECTS.length+' projects';
+
+/* ---------- typing ---------- */
+function type(node,text){const my=++tk,a=el('span','typed'),b=el('span','rest');node.append(a,b);
+if(RM){a.textContent=text;return}node.classList.add('typing');const s0=performance.now();
+(function step(){const i=Math.floor((performance.now()-s0)*.28);if(my!==tk||i>=text.length){a.textContent=text;b.textContent='';node.classList.remove('typing');return}a.textContent=text.slice(0,i);b.textContent=text.slice(i);setTimeout(step,16)})()}
+function head(kick,color,title){pb.textContent='';panel.scrollTop=0;const k=el('div','lab','● '+kick);k.style.color=color;pb.append(k,el('h1',null,title))}
+function say(text){const d=el('div','say');d.innerHTML=HEX;const w=el('div'),p=el('p');w.append(el('span','lab','Harel’s assistant'),p);d.append(w);pb.append(d);type(p,text)}
+function block(h,t,i){const b=el('div','block');if(i!=null)b.dataset.i=i;b.append(el('h3',null,h),el('p',null,t));return b}
+function det(h,sub,i){const d=el('details'),s=el('summary');if(i!=null)d.dataset.i=i;s.append(el('h3',null,h));if(sub)s.append(el('span',null,sub));d.append(s);return d}
+function over(node,onclose){const o=el('div','over');o.append(node);o._close=()=>{if(onclose)onclose();o.remove()};o.onclick=e=>{if(e.target===o)o._close()};document.body.append(o);return o}
+function copy(text,b){const t=b.textContent;try{navigator.clipboard.writeText(text).then(()=>{b.textContent='Copied';setTimeout(()=>b.textContent=t,1600)},()=>{})}catch(e){}}
+function spots(){const s=el('div','spots');SPOTS.forEach(r=>{const d=el('div','spot');d.append(el('b',null,r[0]),el('span',null,r[1]));s.append(d)});return s}
+function roles(open){const l=el('div','list');ROLES.forEach((r,i)=>{const d=det(r.title,r.sub,i);if(open&&!i)d.open=true;const u=el('ul');r.pts.forEach(p=>u.append(el('li',null,p)));d.append(u);l.append(d)});return l}
+function contact(){const f=document.createDocumentFragment(),ad=el('span','addr','Baleshbenor1990@gmail.com'),r=el('div','row'),cp=btn('btn pri','Copy his email',()=>copy(ad.textContent,cp)),a=el('a','btn','LinkedIn');
+a.href='https://www.linkedin.com/in/harel-ben-or-1b911a243';a.target='_blank';a.rel='noopener';ad.dataset.i=0;a.dataset.i=1;r.append(cp,a);f.append(ad,r);return f}
+function faqList(skip){const l=el('div','list');FAQ.forEach((f,i)=>{if(i===skip)return;const d=det(f[0]),c=el('div','in');c.append(el('p',null,f[1]));d.append(c);l.append(d)});return l}
+
+/* ---------- panel views ---------- */
+function projCard(id,a){const p=byId[id],b=btn('card',null,()=>openProj(id));b.style.color=a.c;
+if(p.shot){const im=el('img');im.src=p.shot;im.alt='';im.loading='lazy';b.append(im)}else{const ph=el('span','ph',p.title[0]);b.append(ph)}
+const d=el('div');d.append(el('b',null,p.title),el('span',null,p.line));b.append(d);return b}
+function projList(a){const l=el('div','list');a.cat.forEach(id=>l.append(projCard(id,a)));pb.append(l)}
+const R={
+base(){pb.append(spots(),block("He thinks in systems","Data models, tier systems, standard pipelines, repeatable processes. That instinct produced a prioritization model that outlived his posting, and an ontology that hundreds of analysts work inside every day."),
+block("He puts people first","He earns trust by listening, respecting people and backing them, and then drives action with data. He has led teams of 10 to more than 60, in routine and in wartime."),
+block("What he is looking for","Product roles in data and AI platforms, geospatial, intelligence and defense tech, govtech and cyber threat intelligence."),el('p','lab',AVAIL));
+const r=el('div','row');r.append(btn('btn pri','Harel in one minute',openMinute),btn('btn','Start the tour ›',()=>openArea(1)));pb.append(r)},
+career(){pb.append(roles(true),el('p','lab','Military work is described by type and impact only.'))},
+lookout(){NOTES.forEach((n,i)=>pb.append(block(n[0],n[1],i)));pb.append(el('p','lab','These notes come from the records of his working sessions with me.'))},
+port(a){projList(a);pb.append(btn('btn','Try it: spot the ships yourself',()=>openArcade(3)))},
+play(a){pb.append(btn('btn pri','Play the mockups',()=>openArcade(0)));projList(a)},
+campus(){pb.append(block("Master's in Information Science","Bar-Ilan University, Information Technologies track, 2024 to 2026. GPA 93.6. Coursework: supervised and unsupervised ML, deep learning, LLMs and knowledge graphs, big data, SQL, Python, BI."),
+block("B.A. Geography","Ben-Gurion University of the Negev, 2017 to 2019. Accelerated two-year track."));
+LEVELS.forEach((lv,i)=>{const h=el('div','lab',lv.name);h.dataset.i=i;h.style.color='var(--fg)';pb.append(h);const l=el('div','list');
+lv.skills.forEach(s=>{const d=det(s.n),c=el('div','in');c.append(el('p',null,s.e));if(s.p.length){const k=el('div','row');s.p.forEach(id=>k.append(btn('btn',byId[id].title,()=>openProj(id))));c.append(k)}d.append(c);l.append(d)});pb.append(l)})},
+kitchen(){FUN.forEach((f,i)=>pb.append(block(f[0],f[1],i)))},
+signal(){pb.append(contact(),el('p','lab',AVAIL));const r=el('div','row');r.append(btn('btn','Harel in one minute',openMinute),btn('btn','Questions hiring managers ask',openAsk));pb.append(r)}
+};
+function sync(item){A.forEach((a,i)=>{hubs[i].setAttribute('aria-pressed',i==sel);chipB[i].setAttribute('aria-pressed',i==sel)});
+const a=A[sel];$('#tname').textContent=a.n;$('#tsub').textContent=a.sub;$('#t-n').textContent=String(sel+1).padStart(2,'0')+' / '+A.length;
+itL.forEach((b,j)=>{b.hidden=!sel||j>=a.items.length;b.textContent=a.items[j]||'';b.classList.toggle('on',j===item)});
+if(G)G.focus(sel,item==null?-1:item);
+if(location.hash.slice(1)!==a.s.key&&(sel||location.hash))try{location.hash=a.s.key}catch(e){}}
+function openArea(i,quiet){hideHello();sel=(i+A.length)%A.length;const a=A[sel],s=a.s;
+head('Area '+String(sel+1).padStart(2,'0')+' · '+a.n,a.c,s.title);say(s.say);(R[s.key]||projList)(a);sync()}
+function openProj(id){const a=A.find(x=>x.cat&&x.cat.includes(id)),p=byId[id];hideHello();sel=a.i;
+head(a.n+' · project',a.c,p.title);pb.insertBefore(btn('bk','‹ back to '+a.n,()=>openArea(a.i)),pb.firstChild);
+pb.append(el('p',null,p.line));
+if(p.shot){const im=el('img');im.src=p.shot;im.alt='Screenshot of '+p.title+'. '+p.cap;const b=btn('shot',null,()=>{const big=el('img');big.src=p.shot;big.alt=im.alt;const o=over(big);big.onclick=o._close});b.setAttribute('aria-label','Enlarge screenshot of '+p.title);b.append(im);pb.append(b,el('p','lab',p.cap))}
+[["What it is",p.what],["Harel’s part",p.part],["What it shows",p.shows]].forEach(r=>{const k=el('div','kv');k.append(el('span','lab',r[0]),el('p',null,r[1]));pb.append(k)});
+const k=el('div','kv'),t=el('div','tags');p.stack.forEach(x=>t.append(el('span',null,x)));k.append(el('span','lab','Built with'),t);pb.append(k);
+if(p.link){const l=el('a','btn',p.linkText);l.href=p.link;l.target='_blank';l.rel='noopener';l.style.textTransform='none';pb.append(l)}
+if(a.s.key==='play'&&['merge','hog','survivelmon'].includes(id))pb.append(btn('btn pri','Play the mockup',()=>openArcade(['merge','hog','survivelmon'].indexOf(id))));
+if(id==='ships')pb.append(btn('btn','Try it: spot the ships yourself',()=>openArcade(3)));
+sync(a.cat.indexOf(id))}
+function openItem(j){const a=A[sel];if(a.cat)return openProj(a.cat[j]);const t=pb.querySelector('[data-i="'+j+'"]');if(!t)return;
+if(t.tagName==='DETAILS')t.open=true;t.classList.remove('flash');void t.offsetWidth;t.classList.add('flash');t.scrollIntoView({block:'center',behavior:RM?'auto':'smooth'});
+itL.forEach((b,k)=>b.classList.toggle('on',k===j));if(G)G.focus(sel,j)}
+function openFacts(){hideHello();head('One page','#7FD1AE','Harel Ben Or, in brief');
+say('The CV on one page: roles, numbers, education. For the person behind it, open "Harel in one minute".');
+pb.append(el('p',null,'Platform and data leader with 17 years in the IDF intelligence community. He turns user needs into requirements, KPIs and priorities with engineering teams, and turns large, complex, multi-source data into clear, actionable insights. He is looking for product roles in data and AI platforms.'),
+spots(),el('div','lab','Experience'),roles(false),el('div','lab','Education'),block("Master's in Information Science, GPA 93.6","Bar-Ilan University, 2024 to 2026."),block("B.A. Geography","Ben-Gurion University of the Negev, 2017 to 2019."),el('div','lab','Strongest skills'));
+const tg=el('div','tags');LEVELS[0].skills.forEach(s=>tg.append(el('span',null,s.n)));pb.append(tg,el('div','lab','Contact'),contact(),el('p','lab',AVAIL))}
+function openAsk(){hideHello();head('Ask his assistant','#7FD1AE','Questions hiring managers ask');
+say('These are the questions I hear most. I answer them the way Harel would want: plainly.');pb.append(faqList(),btn('btn','Read my notes on working with him',()=>openArea(2)))}
+const KW=[[/\b(code|coding|program|engineer|developer|python|technical)/i,1],[/\b(title|been a pm|product manager before|experience as)/i,0],[/\b(military|army|idf|officer|uniform|tech company|civilian)/i,2],
+[/\b(start|available|availability|when can|notice)/i,5],[/\b(work with|like to work|personality|person|manager|team ?player|culture|weakness|strength)/i,3],[/\b(roles?|fit|looking for|position|job|hire)/i,4]];
+const KA=[[/\b(ai|agents?|claude|llm|prompt)/i,'ai'],[/\b(contact|email|reach|linkedin|phone)/i,9],[/\b(games?|play|film|unity)/i,6],[/\b(ship|vision|detect|cnn|neural)/i,5],[/\b(geo|gis|maps?|pipeline|spatial)/i,3],
+[/\b(school|degree|education|master|skills?|sql|grade)/i,7],[/\b(product|app|shipped|built|projects?)/i,4],[/\b(career|experience|roles? he|background|history)/i,1],[/\b(hobb|free time|cook|fun)/i,8]];
+function answer(q){hideHello();head('Ask his assistant','#7FD1AE','You asked');pb.append(el('div','you',q));
+const f=KW.find(k=>k[0].test(q)),g=KA.find(k=>k[0].test(q));
+if(g&&g[1]==='ai'){const m=MIN[7];say(m.lead+' He owns the product, the data and the decisions, and AI tools write most of the code.');m.pts.forEach(p=>pb.append(block(p[0],p[1])));pb.append(btn('btn','Read all seven of my notes',()=>openArea(2)))}
+else if(f){say(FAQ[f[1]][1]);pb.append(el('div','lab','More questions'),faqList(f[1]))}
+else if(g){const a=A[g[1]];say(a.s.say);pb.append(btn('btn pri','Open '+a.n+' ›',()=>openArea(a.i)))}
+else{say('I answer from prepared notes about Harel, so I cannot answer that one directly. These are the questions I can answer, and you can ask him the rest himself.');pb.append(faqList(),btn('btn','Get in touch',()=>openArea(9)))}}
+$('#ask').onsubmit=e=>{e.preventDefault();const q=$('#q').value.trim();if(q){answer(q);$('#q').value=''}};
+
+/* ---------- Harel in one minute ---------- */
+function openMinute(){hideHello();const c=el('div','win'),bar=el('div','bar'),top=el('div','wtop'),lab=el('span','lab'),body=el('div'),foot=el('div','s-foot');let i=0;
+c.setAttribute('role','dialog');c.setAttribute('aria-label','Harel in one minute');body.style.cssText='display:flex;flex-direction:column;gap:14px';
+MIN.forEach(()=>bar.append(el('i')));const o=over(c,()=>document.removeEventListener('keydown',key));
+const prev=btn('btn','‹ Back',()=>go(-1)),next=btn('btn pri','',()=>go(1));top.append(lab,btn('x','×',o._close));foot.append(prev,next);c.append(bar,top,body,foot);
+function render(){const m=MIN[i];body.textContent='';c.scrollTop=0;[...bar.children].forEach((b,k)=>b.className=k<=i?'on':'');
+lab.textContent='Harel in one minute · '+(i+1)+' / '+MIN.length;
+const h=el('div','s-head'),hl=el('div');hl.append(el('span','lab',m.kicker||(i?'Trait '+i+' of 6':'From his assistant')),el('h2',null,m.h));h.append(hl);
+const g=el('div','s-glyph');g.innerHTML=m.g?glyph(m.g):HEX;h.append(g);body.append(h,el('p','s-lead',m.lead));
+if(m.proof){const p=el('div','s-proof');p.append(el('span','lab',m.proofLabel||'The moment behind it'),el('p',null,m.proof));body.append(p)}
+if(m.pts)m.pts.forEach(pt=>{const d=el('div','s-proof');d.append(el('span','lab',pt[0]),el('p',null,pt[1]));body.append(d)});
+if(m.q){const q=el('p','s-quote','“'+m.q+'”');q.append(el('small',null,'Harel, in his own words'));body.append(q)}
+if(m.note)body.append(el('p','lab',m.note));
+if(m.last){body.append(contact());const r=el('div','row');r.append(btn('btn','The CV version',()=>{o._close();openFacts()}));body.append(r)}
+prev.style.visibility=i?'visible':'hidden';next.textContent=i===0?'Start ›':m.last?'Explore his work':'Next ›'}
+function go(d){const n=i+d;if(n<0)return;if(n>=MIN.length){o._close();openArea(1);return}i=n;render()}
+function key(e){if(e.key==='ArrowRight')go(1);else if(e.key==='ArrowLeft')go(-1)}
+document.addEventListener('keydown',key);render();next.focus()}
+
+/* ---------- arcade ---------- */
+function openArcade(n){const w=el('div','win'),top=el('div','wtop'),box=el('div','game'),nav=el('nav'),hold=el('div'),about=el('p','about'),hud=el('div','hud'),s1=el('span'),s2=el('span');
+let stop=null,cur=0;const tabs=[];const o=over(w,()=>{if(stop)stop()});
+top.append(el('h3',null,'Harel’s games, in miniature'),btn('x','×',o._close));
+function start(i){if(stop)stop();cur=i;hold.textContent='';const cv=el('canvas');cv.width=560;cv.height=340;cv.setAttribute('aria-label',GAMES[i].name+' mini game');hold.append(cv);
+about.textContent=GAMES[i].about;tabs.forEach((t,k)=>t.setAttribute('aria-pressed',k===i));
+stop=GAMES[i].make(cv,cv.getContext('2d'),(a,b)=>{if(s1.textContent!==a)s1.textContent=a;if(s2.textContent!==b)s2.textContent=b})}
+GAMES.forEach((g,i)=>{const b=btn('btn',g.name,()=>start(i));nav.append(b);tabs.push(b)});
+hud.append(s1,s2,btn('btn','Restart',()=>start(cur)));box.append(nav,hold,about,hud);w.append(top,box);start(n||0)}
+
+/* ---------- chrome ---------- */
+const labels=$('#labels'),chips=$('#chips'),hubs=[],chipB=[];
+A.forEach((a,i)=>{const b=btn(i?'hub':'core',null,()=>openArea(i));b.style.color=a.c;
+if(i)b.innerHTML='<i style="background:'+a.c+'"></i><span></span><small>'+a.items.length+'</small>';else b.innerHTML=HEX.replace('<svg','<svg width="34" height="34"')+'<span>HAREL</span>';
+if(i)b.children[1].textContent=a.n;labels.append(b);hubs.push(b);
+const c=btn('chip',null,()=>openArea(i));c.style.color=a.c;c.innerHTML='<i style="background:'+a.c+'"></i><span></span>';c.children[1].textContent=a.n.toLowerCase();chips.append(c);chipB.push(c)});
+const itL=[...Array(7)].map((_,j)=>{const b=btn('it','',()=>openItem(j));b.hidden=true;labels.append(b);return b});
+(function(){const v=$('#vit');v.append(el('div','lab','Vitals'));SPOTS.forEach(r=>{const d=el('div','stat');d.append(el('b',null,r[0]),el('span',null,r[1]));v.append(d)});
+v.append(el('div','lab','AI systems he designed'));const s=el('div','sys');
+[['23','named AI agents run as a game studio, with a QA gate','merge'],['12','scheduled AI scouts and a manager that merges their finds','scouts'],['1','village of AI staff, with real permission rules and approvals','village']].forEach(r=>{const b=btn(null,null,()=>openProj(r[2]));b.append(el('b',null,r[0]),el('span',null,r[1]));s.append(b)});
+v.append(s,el('div','lab','Available from January 2027'))})();
+$('#b-min').onclick=openMinute;$('#b-cv').onclick=openFacts;$('#t-prev').onclick=()=>openArea(sel-1);$('#t-next').onclick=()=>openArea(sel+1);
+document.addEventListener('keydown',e=>{const o=document.querySelector('.over');if(e.key==='Escape'&&o)o._close();
+if(o||/INPUT|TEXTAREA/.test(document.activeElement.tagName))return;if(e.key==='ArrowRight')openArea(sel+1);if(e.key==='ArrowLeft')openArea(sel-1)});
+addEventListener('hashchange',()=>{const s=siteBy[location.hash.slice(1)];if(s&&s.i!==sel)openArea(s.i)});
+let hello=null;function hideHello(){if(hello){hello.remove();hello=null}}
+function showHello(){hello=el('div');hello.id='hello';hello.setAttribute('role','dialog');const t=el('div','say');t.style.cssText='border:0;background:none;padding:0';t.innerHTML=HEX;const w=el('div');w.append(el('span','lab','Harel’s assistant'),el('h2',null,'Hi. You’re thinking about hiring Harel?'));t.append(w);
+const p=el('p');hello.append(t,p);type(p,'I’m the AI assistant he builds his projects with. You probably have his CV already, so I’ll start with what is not on it: what he is like to work with. It takes about a minute. After that, the graph behind me holds his work, for when you want to go deeper.');
+const r=el('div','row');r.append(btn('btn pri','Meet Harel in one minute',openMinute),btn('btn','Guided tour',()=>openArea(1)),btn('btn','Let me explore',hideHello));hello.append(r);$('#mid').append(hello)}
+
+/* ---------- 3D graph ---------- */
+function initGraph(){const cv=$('#c');let ren;try{ren=new THREE.WebGLRenderer({canvas:cv,antialias:true,alpha:true})}catch(e){return null}
+const T=THREE,scene=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,50);cam.position.z=5;const g=new T.Group();scene.add(g);
+let seed=5;const Rn=()=>(seed=seed*16807%2147483647)/2147483647;
+function dir(){const u=Rn()*2-1,a=Rn()*6.2832,s=Math.sqrt(1-u*u);return[s*Math.cos(a),u,s*Math.sin(a)]}
+const NH=A.length-1;A.forEach((a,i)=>{if(!i){a.v=[0,0,0];a.iv=[];return}const k=i-1,y=1-2*(k+.5)/NH,r=Math.sqrt(1-y*y),t=k*2.39996;
+a.v=[r*Math.cos(t)*.97,y*.8,r*Math.sin(t)*.97];
+a.iv=a.items.map((_,j)=>{const q=j*6.2832/a.items.length+i,d=[Math.cos(q),Math.sin(q),Math.sin(q*1.7)*.5];return a.v.map((c,n)=>c*1.17+d[n]*.27)})});
+const tc=document.createElement('canvas');tc.width=tc.height=64;const x2=tc.getContext('2d'),gr=x2.createRadialGradient(32,32,0,32,32,32);
+gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.35,'rgba(255,255,255,.75)');gr.addColorStop(.5,'rgba(255,255,255,.18)');gr.addColorStop(1,'rgba(255,255,255,0)');x2.fillStyle=gr;x2.fillRect(0,0,64,64);
+const tex=new T.CanvasTexture(tc),ct=new T.Color();
+function pts(arr,cols,size,op){const ge=new T.BufferGeometry();ge.setAttribute('position',new T.Float32BufferAttribute(arr,3));if(cols)ge.setAttribute('color',new T.Float32BufferAttribute(cols,3));
+const m=new T.Points(ge,new T.PointsMaterial({size,map:tex,vertexColors:!!cols,color:cols?0xffffff:0x8E98A6,transparent:true,opacity:op,depthWrite:false,blending:T.AdditiveBlending}));g.add(m);return m}
+function lines(arr,cols,op,color){const ge=new T.BufferGeometry();ge.setAttribute('position',new T.Float32BufferAttribute(arr,3));if(cols)ge.setAttribute('color',new T.Float32BufferAttribute(cols,3));
+const m=new T.LineSegments(ge,new T.LineBasicMaterial({vertexColors:!!cols,color:color||0xffffff,transparent:true,opacity:op,depthWrite:false,blending:T.AdditiveBlending}));g.add(m);return m}
+let d=[],dc=[];for(let i=0;i<700;i++){const v=dir(),r=1.4+Rn()*.12;d.push(v[0]*r,v[1]*r,v[2]*r)}pts(d,null,.035,.5);
+d=[];const iv=[],ic=[],la=[],lc=[],lb=[],lbc=[],E=[];
+A.forEach((a,i)=>{if(!i)return;ct.set(a.c);
+for(let j=0;j<70;j++){const v=dir(),r=.1+Math.pow(Rn(),.6)*.34,k=.3+Rn()*.6;d.push(a.v[0]*1.1+v[0]*r,a.v[1]*1.1+v[1]*r,a.v[2]*1.1+v[2]*r);dc.push(ct.r*k,ct.g*k,ct.b*k)}
+la.push(0,0,0,...a.v);lc.push(ct.r*.3,ct.g*.3,ct.b*.3,ct.r,ct.g,ct.b);E.push([[0,0,0],a.v]);
+a.iv.forEach(p=>{iv.push(...p);ic.push(ct.r,ct.g,ct.b);lb.push(...a.v,...p);lbc.push(ct.r,ct.g,ct.b,ct.r,ct.g,ct.b);E.push([a.v,p])})});
+pts(d,dc,.06,.9);pts(iv,ic,.13,1);lines(la,lc,.55);lines(lb,lbc,.3);
+const ring=[],e3=new T.Euler(),va=new T.Vector3(),vb=new T.Vector3();for(const [ax,ay] of[[0,0],[1.2,0],[.5,1.1]]){e3.set(ax,ay,0);for(let i=0;i<96;i++){va.set(Math.cos(i/96*6.2832),0,Math.sin(i/96*6.2832)).multiplyScalar(1.56).applyEuler(e3);vb.set(Math.cos((i+1)/96*6.2832),0,Math.sin((i+1)/96*6.2832)).multiplyScalar(1.56).applyEuler(e3);ring.push(va.x,va.y,va.z,vb.x,vb.y,vb.z)}}
+lines(ring,null,.12,0x8FB4FF);
+const selL=lines(new Array(42).fill(0),null,.8,0xffffff);
+const sp=A.map(a=>{const m=new T.Sprite(new T.SpriteMaterial({map:tex,color:a.c,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));m.position.set(...a.v);g.add(m);return m});
+const hi=new T.Sprite(new T.SpriteMaterial({map:tex,color:0xffffff,transparent:true,depthWrite:false,blending:T.AdditiveBlending}));hi.visible=false;g.add(hi);
+const NP=56,pu=[],pp=new Float32Array(NP*3);for(let i=0;i<NP;i++)pu.push({e:Rn()*E.length|0,t:Rn(),s:.3+Rn()*.7});
+const ug=pts(pp,null,.09,1);ug.material.color.set(0xffffff);
+let ry=.4,rx=.15,ty=ry,tx=rx,auto=true,paused=RM,last=0,W=0,H=0,base=1,zs=1,box={left:0,right:0},fs=0;
+function fit(){W=cv.clientWidth;H=cv.clientHeight;if(!W||!H)return;ren.setPixelRatio(Math.min(devicePixelRatio,2));ren.setSize(W,H,false);cam.aspect=W/H;cam.updateProjectionMatrix();
+box=$('#stage').getBoundingClientRect();const upp=2*5*Math.tan(20*Math.PI/180)/H;
+g.position.set((box.left+box.width/2-W/2)*upp,-(box.top+box.height/2-H/2)*upp,0);base=Math.max(.25,Math.min(box.width/3.6,box.height*1.12/2.8)*upp)}
+addEventListener('resize',fit);if(window.ResizeObserver)new ResizeObserver(fit).observe($('#stage'));
+let dr=null;cv.onpointerdown=e=>{dr=[e.clientX,e.clientY];cv.setPointerCapture(e.pointerId);cv.style.cursor='grabbing'};
+cv.onpointermove=e=>{if(!dr)return;ty+=(e.clientX-dr[0])*.008;tx=Math.max(-1,Math.min(1,tx+(e.clientY-dr[1])*.006));dr=[e.clientX,e.clientY];auto=false;last=performance.now()};
+cv.onpointerup=cv.onpointercancel=()=>{dr=null;cv.style.cursor='grab'};
+$('#t-mo').onclick=e=>{paused=!paused;e.target.textContent=paused?'resume motion':'pause motion'};
+const v=new T.Vector3();let t0=performance.now();
+function place(elm,p,dy){v.set(...p);g.localToWorld(v);const back=v.z<-.25*g.scale.x;v.project(cam);const hw=elm.offsetWidth/2+6;
+elm.style.transform='translate(-50%,-50%) translate('+Math.max(box.left+hw,Math.min(box.right-hw,(v.x*.5+.5)*W)).toFixed(1)+'px,'+((-v.y*.5+.5)*H+dy).toFixed(1)+'px)';return back}
+function frame(now){const dt=Math.min(.05,(now-t0)/1000);t0=now;
+if(!auto&&!dr&&now-last>9000)auto=true;if(auto&&!paused)ty+=dt*.13;
+ry+=(ty-ry)*Math.min(1,dt*3.5);rx+=(tx-rx)*Math.min(1,dt*3.5);if(auto)tx+=(.15-tx)*dt;zs+=((fs&&!auto?1.2:1)-zs)*Math.min(1,dt*3);
+g.rotation.set(rx,ry,0);g.scale.setScalar(base*zs);
+if(!paused){for(let i=0;i<NP;i++){const u=pu[i];u.t+=dt*u.s;if(u.t>=1){u.t=0;u.e=Rn()*E.length|0}const a=E[u.e][0],b=E[u.e][1];pp[i*3]=a[0]+(b[0]-a[0])*u.t;pp[i*3+1]=a[1]+(b[1]-a[1])*u.t;pp[i*3+2]=a[2]+(b[2]-a[2])*u.t}
+ug.geometry.attributes.position.array.set(pp);ug.geometry.attributes.position.needsUpdate=true}
+const pk=.26+.05*Math.sin(now*.006);hi.scale.set(pk,pk,1);
+ren.render(scene,cam);
+A.forEach((a,i)=>{const back=place(hubs[i],a.v,i?-22:0);if(i){hubs[i].classList.toggle('back',back&&i!=fs);hubs[i].style.zIndex=back?1:2}
+const k=(i?.2:.34)*(i==fs?1.5+.2*Math.sin(now*.005):1);sp[i].scale.set(k,k,1)});
+if(fs)A[fs].iv.forEach((p,j)=>place(itL[j],p,15));
+requestAnimationFrame(frame)}
+fit();requestAnimationFrame(frame);
+return{focus(i,j){fs=i;const a=A[i],p=selL.geometry.attributes.position;for(let n=0;n<7;n++){const q=a.iv[n]||a.v;p.setXYZ(n*2,...a.v);p.setXYZ(n*2+1,...q)}p.needsUpdate=true;
+hi.visible=j>=0&&!!a.iv[j];if(hi.visible)hi.position.set(...a.iv[j]);
+if(i){const t=j>=0&&a.iv[j]?a.iv[j]:a.v;let an=-Math.atan2(t[0],t[2]);while(an-ry>Math.PI)an-=6.2832;while(an-ry<-Math.PI)an+=6.2832;ty=an;tx=Math.atan2(t[1],Math.hypot(t[0],t[2]))*.7;auto=false;last=performance.now()}else auto=true}}}
+
+/* ---------- start ---------- */
+G=initGraph();if(!G)labels.hidden=true;
+const h0=siteBy[location.hash.slice(1)];
+openArea(h0?h0.i:0);
+(function(){const b=$('#boot'),t=$('#boot-t'),L=['loading 17 years of geospatial intelligence','indexing '+PROJECTS.length+' projects across '+(A.length-1)+' areas','linking '+NOTES.length+' field notes from his AI assistant','core online'];
+function done(){b.style.opacity=0;setTimeout(()=>b.remove(),500);if(!h0)showHello()}
+if(RM||h0){done();return}let i=0;(function step(){if(i>=L.length){setTimeout(done,260);return}const r=el('div');r.append(el('b',null,i==L.length-1?'● ':'› '),document.createTextNode(L[i]));t.append(r);i++;setTimeout(step,230)})()})();
+</script>
